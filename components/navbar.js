@@ -1,9 +1,10 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { faRocket } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Link from 'next/link'
 
 
 
@@ -48,18 +49,19 @@ export default function Example(props) {
               
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                <a className="hover:bg-gray-700 hover:text-white hover:rounded-md text-md px-3 py-1.5" href="/">
-                    <FontAwesomeIcon icon={faRocket} />
-                    <span className='px-2'>Jay Dickson</span>
-                </a>
+                <Link href="/">
+                    <a className="hover:bg-gray-700 hover:text-white hover:rounded-md text-md px-3 py-1.5">
+                        <FontAwesomeIcon icon={faRocket} />
+                        <span className='px-2'>Jay Dickson</span>
+                    </a>
+                </Link>
                 </div>
 
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
+                    <Link key={item.name} href={item.href}>
                       <a
-                        key={item.name}
-                        href={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-black-300 hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
@@ -68,6 +70,7 @@ export default function Example(props) {
                       >
                         {item.name}
                       </a>
+                    </Link>
                     ))}
                   </div>
                 </div>
@@ -79,18 +82,24 @@ export default function Example(props) {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-8 pt-2 pb-3 space-y-2">
               {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-black-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
+                    
+                    <Disclosure.Button
+                    key={item.name}
+                    as="button"
+                    className={classNames(
+                        item.current ? 'bg-gray-900 text-white' : 'text-black-300 hover:bg-gray-700 hover:text-white',
+                        'block px-3 py-2 rounded-md text-base font-medium'
+                    )}
+                    aria-current={item.current ? 'page' : undefined}>
+                        <Link href={item.href}>
+                            <div className="relative flex">
+                                <span className="w-96 text-left">{item.name}</span>
+                            </div>
+                        </Link>
+                    
+                    </Disclosure.Button>
+                    
+                
               ))}
             </div>
           </Disclosure.Panel>
