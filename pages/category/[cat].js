@@ -4,7 +4,7 @@ import Layout from '../../components/layout'
 import matter from 'gray-matter';
 import fs from 'fs';
 
-let categories = require("../../info/categories.json")
+let categories = require("../../data/categories.json")
 
 export default function category(props){
 
