@@ -6,7 +6,7 @@ import fs from 'fs';
 
 let categories = require("../../data/categories.json")
 
-export default function category(props){
+export default function Category(props){
 
     const router = useRouter()
     const { cat } =  router.query;
@@ -19,6 +19,7 @@ export default function category(props){
 }
 
 export async function getStaticProps() {
+
     // Get all the posts
     const files = fs.readdirSync('posts');
 
@@ -47,8 +48,6 @@ export async function getStaticProps() {
           cat: category,
         },
     }));
-
-    console.log(paths)
     
     return {
       paths,

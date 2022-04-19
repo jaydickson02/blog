@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import React from "react";
 
-class index extends React.Component {
+class Index extends React.Component {
     constructor(props) {
         super(props)
         this.myRef = React.createRef()
@@ -78,4 +78,4 @@ export async function getStaticProps() {
     };
   }
 
-  export default index
+  export default Index
