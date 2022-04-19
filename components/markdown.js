@@ -13,8 +13,8 @@ const _mapProps = (props) => ({
   ],
   components: {
     ...props.renderers,
-    math: ({ value }) => <BlockMath>{value}</BlockMath>,
-    inlineMath: ({ value }) => <InlineMath>{value}</InlineMath>
+    math: ({ value }) => <span>{value}</span>,
+    inlineMath: ({ value }) => <span>{value}</span>
   }
 });
 
