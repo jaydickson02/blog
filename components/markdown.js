@@ -18,6 +18,7 @@ const _mapProps = (props) => ({
   }
 });
 
-const MarkdownRender = (props) => <ReactMarkdown {..._mapProps(props)} />;
+const Markdown = (props) => <ReactMarkdown {..._mapProps(props)} />;
 
-export default MarkdownRender;
+export default Markdown
+;

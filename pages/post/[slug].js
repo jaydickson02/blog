@@ -1,7 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import Layout from '../../components/layout'
-import MarkdownRender from '../../components/markdownRender';
+import Markdown from '../../components/markdown';
 
 
 export default function PostPage({ frontmatter, content }) {
@@ -16,7 +16,7 @@ export default function PostPage({ frontmatter, content }) {
         </img>
         <h1>{frontmatter.title}</h1>
         <div>
-            <MarkdownRender>{content}</MarkdownRender>
+            <Markdown>{content}</Markdown>
         </div>
       </div>
     </Layout>
